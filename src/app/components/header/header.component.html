@@ -1,0 +1,30 @@
+<header>
+  <nav class="left">
+    <a href="">inicio</a>
+    <a href="">sobre</a>
+  </nav>
+  <div class="logo">
+    <h1>Aglis</h1>
+  </div>
+  <nav class="right">
+    <a href="">contato</a>
+    <a href="">
+      <button>serviços</button>
+    </a>
+  </nav>
+
+  <div class="toggle-menu" (click)="toggleMenu()">
+    <lucide-icon name="menu" [size]="24" [class.active]="!menuIsOpened"></lucide-icon>
+    <lucide-icon name="x" [size]="24" [class.active]="menuIsOpened"></lucide-icon>
+  </div>
+
+  <div class="menu" [class.active]="menuIsOpened">
+    <a href="">inicio</a>
+    <a href="">sobre</a>
+    <a href="">contato</a>
+    <a href="">
+      <button>serviços</button>
+    </a>
+  </div>
+
+</header>

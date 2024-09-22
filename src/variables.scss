@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+$white-primary: #ffffff;
+$white-secondary: #f9fafd;
+$gray-primary: #a3a5ad;
+$gray-secondary: #909198;
+$black-color: #151519;
+
+@mixin max-width-1520 {
+  display: flex;
+  max-width: 1520px;
+  margin: 0 auto;
+  box-sizing: content-box;
+  padding: 0 24px;
+}

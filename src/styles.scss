@@ -1,5 +1,29 @@
+@import './variables.scss';
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'League Spartan', sans-serif;
+}
+body {
+  background-color: $black-color;
+}
+
+a {
+  text-decoration: none;
+  color: $white-primary;
+  font-weight: 800;
+}
+
+h1, h2, h3 {
+  color: $white-primary;
+}
+
+button {
+  border-style: none;
+  background-color: $white-secondary;
+  color: $black-color;
+  font-size: 1.3rem;
+  font-weight: 800;
 }
