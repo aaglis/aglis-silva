@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="text-wrapper">
+    <h1>Projetos</h1>
+    <p>Confira abaixo alguns projetos que eu desenvolvi!</p>
+  </div>
+
+  <div class="projects-container">
+    <div class="blur-area"></div>
+      <div class="projects">
+        @for(item of arrayProjects; track $index) {
+          <div class="project" (click)="setModalImg(item.imgURL)">
+            <div class="techs">
+              <p>{{ item.usedSkills }}</p>
+            </div>
+            <img [src]="item.imgURL" alt="" loading="eager">
+            <div class="footer">
+              <p>{{ item.title }}</p>
+              <p>{{ item.finishedDate}}</p>
+            </div>
+          </div>
+        }
+      </div>
+      <div class="projects">
+        @for(item of arrayProjects; track $index) {
+          <div class="project" (click)="setModalImg(item.imgURL)">
+            <div class="techs">
+              <p>{{ item.usedSkills }}</p>
+            </div>
+            <img [src]="item.imgURL" alt="" loading="eager">
+            <div class="footer">
+              <p>{{ item.title }}</p>
+              <p>{{ item.finishedDate}}</p>
+            </div>
+          </div>
+        }
+      </div>
+  </div>
+</div>
+
+<div #modalProject class="modal-project"(keydown.esc)="closeModalContainer()">
+  <div class="modal-content">
+    <div class="close-modal">
+      <div #closeModal class="icon" (click)="closeModalContainer()">
+        <lucide-icon name="x" [size]="30"></lucide-icon>
+      </div>
+    </div>
+    <div class="img-project">
+      <img [src]="modalImg" alt="">
+    </div>
+  </div>
+</div>
