@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Experiências</h1>
+  <p class="pos-title">Abaixo você encontra todas as minhas experiências na área da tecnologia</p>
+  <div class="experiences-container">
+    @for(experience of arrayExperiences; track $index) {
+      @if($index % 2 === 0) {
+        <div class="experience reverse">
+          <div class="title">
+            <h3>{{ experience.company }}</h3>
+            <p class="role">{{ experience.role }}</p>
+            <p class="date">{{ experience.date }}</p>
+            <p class="description">{{ experience.description }}</p>
+          </div>
+        </div>
+      }
+    }
+    <div class="line-gradient"></div>
+    @for(experience of arrayExperiences; track $index) {
+      @if($index % 2 !== 0) {
+        <div class="experience">
+          <h3>{{ experience.company }}</h3>
+          <p class="role">{{ experience.role }}</p>
+          <p class="date">{{ experience.date }}</p>
+          <p class="description">{{ experience.description }}</p>
+        </div>
+      }
+    }
+  </div>
+</div>

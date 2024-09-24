@@ -1,5 +1,8 @@
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, HostListener, ViewChild, ViewChildren, viewChildren } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, HostListener, Inject, ViewChild, ViewChildren, viewChildren } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
+import { Overlay } from '@angular/cdk/overlay';
 
 interface cardProject {
   imgURL: string;
@@ -20,6 +23,8 @@ export class ProjectsComponent implements AfterViewInit {
   @ViewChild('modalProject') modalProject?: ElementRef;
   @ViewChild('closeModal') closeModal?: ElementRef;
   modalImg: string = '';
+
+  constructor(public dialog: MatDialog, private overlay: Overlay) {}
 
   arrayProjects: cardProject[] = [
     {
@@ -47,18 +52,49 @@ export class ProjectsComponent implements AfterViewInit {
   }
 
   setModalImg(imgUrl: string) {
+    const scrollStrategy = this.overlay.scrollStrategies.block();
     this.modalImg = imgUrl;
-    this.modalProject?.nativeElement.classList.add('active')
+    // this.modalProject?.nativeElement.classList.add('active')
+    const dialogRef = this.dialog.open(ModalProjectComponent, {
+      scrollStrategy: scrollStrategy,
+      data: {imgUrl: this.modalImg},
+      panelClass: 'custom-dialog-container'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
+    document.documentElement.classList.add("cdk-global-scrollblock");
   }
 
   closeModalContainer() {
-    this.modalProject?.nativeElement.classList.remove('active')
+    // this.modalProject?.nativeElement.classList.remove('active')
     this.modalImg = '';
   }
 
+
+}
+
+
+@Component({
+  selector: 'app-modal-project',
+  standalone: true,
+  imports: [LucideAngularModule],
+  templateUrl: './modal-project/modal-project.component.html',
+  styleUrl: './modal-project/modal-project.component.scss',
+})
+
+export class ModalProjectComponent {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: {imgUrl: string},
+    private dialogRef: MatDialogRef<ModalProjectComponent>,
+  ) {}
+
+  closeModal() {
+    this.dialogRef.close();
+  }
   @HostListener('document:keydown.escape', ['$event'])
   handleEscapeKey(event: KeyboardEvent): void {
-    this.closeModalContainer();
+    this.closeModal();
   }
-
 }

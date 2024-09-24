@@ -1,0 +1,68 @@
+@import '../../../variables.scss';
+
+.container {
+  @include max-width-1520;
+  flex-direction: column;
+  padding-top: 12rem;
+  h1 {
+    font-size: 5rem;
+    text-align: end;
+    padding-bottom: 1rem;
+  }
+  .pos-title {
+    text-align: end;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-bottom: 4rem;
+  }
+
+  .experiences-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 50px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(144,145,152,1) 50%, rgba(39,39,45,1) 100%);
+    }
+
+    .experience {
+      width: 45%;
+      &.reverse {
+        align-self: flex-end;
+      }
+
+      h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: .5rem;
+      }
+
+      p {
+        &.role {
+          font-size: 1.2rem;
+          font-weight: 500;
+          margin-bottom: .8rem;
+          color: $gray-secondary;
+        }
+        &.date {
+          font-size: 1rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+        }
+        &.description {
+          font-size: 1.1rem;
+          font-weight: 400;
+          line-height: 1.3rem;
+        }
+      }
+    }
+  }
+}
