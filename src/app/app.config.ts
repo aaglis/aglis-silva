@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import { LucideAngularModule, X, Menu, Send, Instagram, Linkedin } from 'lucide-angular';
+import { LucideAngularModule, X, Menu, Send, Instagram, Linkedin, ChevronRight } from 'lucide-angular';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
@@ -11,6 +11,6 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(),
-    importProvidersFrom(LucideAngularModule.pick({X, Menu, Send, Instagram, Linkedin})), provideAnimationsAsync()
+    importProvidersFrom(LucideAngularModule.pick({X, Menu, Send, Instagram, Linkedin, ChevronRight})), provideAnimationsAsync()
   ]
 };

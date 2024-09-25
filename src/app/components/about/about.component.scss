@@ -1,0 +1,111 @@
+@import '../../../variables.scss';
+
+:host {
+  display: block;
+  padding-top: 8rem;
+  padding-bottom: 2rem;
+}
+
+.container {
+  @include max-width-1520;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 400px;
+  border-radius: 20px;
+  background-color: $black-secondary;
+  padding: 2rem;
+  .content {
+    display: flex;
+    .left-wrapper {
+      padding: 0 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background-color: $gray-secondary;
+        border-radius: 5px;
+      }
+      .title {
+        h1 {
+          font-size: 4.5rem;
+        }
+        p {
+          font-size: 1.4rem;
+          color: $gray-secondary;
+          font-weight: 600;
+        }
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding-left: 20px;
+        li {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          position: relative; // Necessário para posicionar o pseudo-elemento
+          &::before {
+            content: '•'; // Define o conteúdo do marcador
+            color: $white-primary; // Altere esta cor conforme necessário
+            position: absolute;
+            left: -20px; // Ajuste a posição conforme necessário
+            font-size: 1.2rem; // Ajuste o tamanho conforme necessário
+          }
+          span {
+            font-size: 1.2rem;
+            font-weight: 600;
+          }
+          p {
+            font-size: 1.1rem;
+            color: $gray-primary;
+          }
+        }
+      }
+    }
+    .right-wrapper {
+      padding: 0 3rem;
+      .details {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        height: 100%;
+        gap: 40px;
+
+        .links {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 1.2rem;
+            p {
+              transition: .3s;
+            }
+            &:hover {
+              p {
+                transform: translateX(10px);
+              }
+            }
+          }
+        }
+        span {
+          font-size: 1.1rem;
+          color: $gray-secondary;
+          font-weight: 600;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+}
