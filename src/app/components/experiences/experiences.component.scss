@@ -4,6 +4,22 @@
   @include max-width-1520;
   flex-direction: column;
   padding-top: 12rem;
+  overflow: hidden;
+  //animation
+  .title {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(50%);
+    transition: 1s;
+    transition-property: opacity, filter, transform;
+
+    &.show-top {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+  }
+
   h1 {
     font-size: 5rem;
     padding-bottom: 1rem;
@@ -33,8 +49,32 @@
 
     .experience {
       width: 45%;
+
+      //animation
+      opacity: 0;
+      filter: blur(5px);
+      transition: 1s;
+      transition-property: opacity, filter, transform;
       &.reverse {
         align-self: flex-end;
+        transform: translateX(100%);
+        &.show-right {
+          opacity: 1;
+          transform: translateX(0);
+          filter: blur(0);
+        }
+      }
+      &:not(.reverse) {
+        transform: translateX(-100%);
+        &.show-left {
+          opacity: 1;
+          transform: translateX(0);
+          filter: blur(0);
+        }
+      }
+
+      &:nth-child(2) {
+        transition-delay: 400ms;
       }
 
       h3 {

@@ -1,5 +1,5 @@
 <section class="container">
-  <div class="left-wrapper">
+  <div #leftWrapper class="left-wrapper">
     <h1>Olá,<br>Eu sou o Aglis!</h1>
     @for(skill of arraySkills; track $index) {
       <p class="skill">{{ skill }}</p>
@@ -7,7 +7,7 @@
     <p>Sou desenvolvedor frontend há mais de um ano, apaixonado por criar interfaces de usuário intuitivas e responsivas.</p>
     <button>Ver meus projetos</button>
   </div>
-  <div class="right-wrapper">
+  <div #rightWrapper class="right-wrapper">
     @for(item of arrayProjects; track $index) {
       <div class="project-image">
         <img [src]="item" alt=""  loading="eager">

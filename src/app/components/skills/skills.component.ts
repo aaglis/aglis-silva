@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { afterRender, Component, ElementRef, ViewChild, ViewChildren } from '@angular/core';
 
 type skillCategory = 'Frontend' | 'Design' | 'Backend e Banco de Dados' | 'Controle de versões';
 
@@ -16,6 +16,10 @@ interface Skill {
   styleUrl: './skills.component.scss'
 })
 export class SkillsComponent {
+
+  @ViewChild ('title') title?: ElementRef;
+  @ViewChildren ('skillSection') skillSections?: ElementRef[];
+
   arraySkills: Skill[] = [
     {
       iconUrl: '/icons/angular.png',
@@ -108,4 +112,33 @@ export class SkillsComponent {
       category: 'Controle de versões'
     }
   ]
+
+  constructor() {
+    afterRender(() => {
+      const observerLeft = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('show-left')
+          } else {
+            entry.target.classList.remove('show-left')
+          }
+        })
+      })
+      const observerTop = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('show-top')
+          } else {
+            entry.target.classList.remove('show-top')
+          }
+        })
+      })
+
+      observerLeft.observe(this.title?.nativeElement)
+      this.skillSections?.forEach((section) => {
+        observerTop.observe(section.nativeElement)
+      })
+
+    })
+  }
 }

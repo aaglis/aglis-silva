@@ -5,7 +5,7 @@
     @include max-width-1520;
     justify-content: space-between;
     align-items: center;
-    padding: 4rem 24px;
+    padding: 4rem 24px 0 24px;
 
     nav {
       display: flex;
@@ -17,6 +17,7 @@
           width: 150px;
           height: 40px;
           border-radius: 20px;
+          cursor: pointer;
         }
       }
     }

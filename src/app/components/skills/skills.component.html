@@ -1,7 +1,7 @@
 <section class="container">
-  <h1>Tecnologias</h1>
+  <h1 #title>Tecnologias</h1>
   <div class="skills-container">
-    <div class="area front-end">
+    <div #skillSection class="area front-end">
       <h3>frontend</h3>
       <div class="skills">
         @for(skill of arraySkills; track $index){
@@ -16,7 +16,7 @@
         }
       </div>
     </div>
-    <div class="area design">
+    <div #skillSection class="area design">
       <h3>design</h3>
       <div class="skills">
         @for(skill of arraySkills; track $index) {
@@ -31,7 +31,7 @@
         }
       </div>
     </div>
-    <div class="area back-end-database">
+    <div #skillSection class="area back-end-database">
       <h3>backend e banco de dados</h3>
       <div class="skills">
         @for(skill of arraySkills; track $index){

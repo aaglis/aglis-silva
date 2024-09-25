@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, HostListener, Inject, ViewChild, ViewChildren, viewChildren } from '@angular/core';
+import { afterRender, AfterViewChecked, AfterViewInit, Component, ElementRef, HostListener, Inject, ViewChild, ViewChildren, viewChildren } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
@@ -22,9 +22,36 @@ export class ProjectsComponent implements AfterViewInit {
 
   @ViewChild('modalProject') modalProject?: ElementRef;
   @ViewChild('closeModal') closeModal?: ElementRef;
+  @ViewChild('title') title?: ElementRef;
+  @ViewChild('projects') projects?: ElementRef;
   modalImg: string = '';
 
-  constructor(public dialog: MatDialog, private overlay: Overlay) {}
+  constructor(public dialog: MatDialog, private overlay: Overlay) {
+    afterRender(() => {
+      const observerLeft = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('show-left')
+          } else {
+            entry.target.classList.remove('show-left')
+          }
+        })
+      })
+      const observerTop = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('show-top')
+          } else {
+            entry.target.classList.remove('show-top')
+          }
+        })
+      })
+
+      observerLeft.observe(this.title?.nativeElement)
+      observerTop.observe(this.projects?.nativeElement)
+
+    })
+  }
 
   arrayProjects: cardProject[] = [
     {
