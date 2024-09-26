@@ -1,12 +1,24 @@
 @import '../../../variables.scss';
 
 :host {
+  display: block;
+  width: 100%;
+  position: fixed;
+  z-index: 5;
+  transition: .3s;
+  &.shadow {
+    header {
+      padding: 2rem 40px;
+      background-color: $black-secondary;
+      border-radius: 100px
+    }
+  }
   header {
     @include max-width-1520;
     justify-content: space-between;
     align-items: center;
-    padding: 4rem 24px 0 24px;
-
+    padding: 4rem 24px;
+    transition: .3s;
     nav {
       display: flex;
       align-items: center;
