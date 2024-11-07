@@ -1,4 +1,4 @@
-@import '../../../variables.scss';
+@import "../../../variables.scss";
 
 .container {
   @include max-width-1520;
@@ -19,7 +19,6 @@
       filter: blur(0);
       transform: translateX(0);
     }
-
 
     h1 {
       font-size: 4.5rem;
@@ -60,6 +59,7 @@
       width: 100%;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 20px;
       a {
         display: flex;
@@ -75,7 +75,7 @@
         opacity: 0;
         filter: blur(3px);
         transform: translateY(50%);
-        transition: .8s;
+        transition: 0.8s;
         transition-property: opacity, filter, transform;
         &.show-top {
           opacity: 1;
@@ -90,7 +90,6 @@
           transition-delay: 400ms;
         }
 
-
         lucide-icon {
           display: flex;
           justify-content: center;
@@ -98,7 +97,7 @@
         }
 
         &:hover {
-          transition: .3s;
+          transition: 0.3s;
           transition-delay: 0;
           background-color: lighten($black-secondary, 10%);
           transform: translateY(-10px);
