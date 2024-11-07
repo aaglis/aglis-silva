@@ -1,11 +1,10 @@
-@import '../../../variables.scss';
+@import "../../../variables.scss";
 
 .container {
   @include max-width-1520;
   padding-top: 10rem;
   flex-direction: column;
   .text-wrapper {
-
     //animation
     opacity: 0;
     filter: blur(5px);
@@ -27,6 +26,9 @@
       font-size: 1.5rem;
       margin-bottom: 2rem;
       font-weight: 500;
+      @media screen and (max-width: 530px) {
+        font-size: 1.2rem;
+      }
     }
   }
 
@@ -34,12 +36,14 @@
     display: flex;
     overflow-x: hidden;
     position: relative;
-    box-shadow: inset -30px 0 20px -30px $black-color, inset 30px 0 30px -20px $black-color;
+    box-shadow:
+      inset -30px 0 20px -30px $black-color,
+      inset 30px 0 30px -20px $black-color;
     gap: 50px;
     padding: 20px 0;
     border-radius: 15px;
 
-     //animation
+    //animation
     opacity: 0;
     filter: blur(5px);
     transform: translateY(50%);
@@ -63,7 +67,13 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent 10%, transparent 80%, rgba(0, 0, 0, 0.5));
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        transparent 10%,
+        transparent 80%,
+        rgba(0, 0, 0, 0.5)
+      );
       pointer-events: none;
       z-index: 1;
     }
@@ -76,12 +86,13 @@
         border-radius: 15px;
         overflow: hidden;
         max-width: 693px;
-        transition: .3s;
+        transition: 0.3s;
         position: relative;
         display: flex;
         justify-content: center;
         cursor: pointer;
-        .techs, .footer {
+        .techs,
+        .footer {
           position: absolute;
           z-index: 2;
         }
@@ -92,7 +103,7 @@
           left: 20px;
           padding: 8px 15px;
           border-radius: 15px;
-          transition: .2s ease-out;
+          transition: 0.2s ease-out;
           font-weight: 700;
         }
 
@@ -102,7 +113,7 @@
           justify-content: space-between;
           align-items: center;
           margin: 0 auto;
-          transition: .2s ease-out;
+          transition: 0.2s ease-out;
           background-color: $black-secondary;
           padding: 13px 15px;
           border-radius: 20px;
@@ -123,7 +134,10 @@
           object-fit: fill;
           max-width: 700px;
           height: 100%;
-          opacity: .95;
+          opacity: 0.95;
+          @media screen and (max-width: 530px) {
+            max-width: 500px;
+          }
         }
       }
     }

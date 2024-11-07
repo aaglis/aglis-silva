@@ -4,11 +4,11 @@
     <div #skillSection class="area front-end">
       <h3>frontend</h3>
       <div class="skills">
-        @for(skill of arraySkills; track $index){
-          @if(skill.category === 'Frontend') {
+        @for (skill of arraySkills; track $index) {
+          @if (skill.category === "Frontend") {
             <div class="skill">
               <div class="img">
-                <img [src]="skill.iconUrl" alt="">
+                <img [src]="skill.iconUrl" alt="" />
               </div>
               <span>{{ skill.name }}</span>
             </div>
@@ -19,11 +19,11 @@
     <div #skillSection class="area design">
       <h3>design</h3>
       <div class="skills">
-        @for(skill of arraySkills; track $index) {
-          @if(skill.category === 'Design') {
+        @for (skill of arraySkills; track $index) {
+          @if (skill.category === "Design") {
             <div class="skill">
               <div class="img">
-                <img [src]="skill.iconUrl" alt="">
+                <img [src]="skill.iconUrl" alt="" />
               </div>
               <span>{{ skill.name }}</span>
             </div>
@@ -34,11 +34,11 @@
     <div #skillSection class="area back-end-database">
       <h3>backend e banco de dados</h3>
       <div class="skills">
-        @for(skill of arraySkills; track $index){
-          @if(skill.category === 'Backend e Banco de Dados') {
+        @for (skill of arraySkills; track $index) {
+          @if (skill.category === "Backend e Banco de Dados") {
             <div class="skill">
               <div class="img">
-                <img [src]="skill.iconUrl" alt="">
+                <img [src]="skill.iconUrl" alt="" />
               </div>
               <span>{{ skill.name }}</span>
             </div>
@@ -46,14 +46,14 @@
         }
       </div>
     </div>
-    <div class="area control-version">
+    <div #skillSection class="area control-version">
       <h3>controle de verões</h3>
       <div class="skills">
-        @for(skill of arraySkills; track $index) {
-          @if(skill.category === 'Controle de versões') {
+        @for (skill of arraySkills; track $index) {
+          @if (skill.category === "Controle de versões") {
             <div class="skill">
               <div class="img">
-                <img [src]="skill.iconUrl" alt="">
+                <img [src]="skill.iconUrl" alt="" />
               </div>
               <span>{{ skill.name }}</span>
             </div>
