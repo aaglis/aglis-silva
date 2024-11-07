@@ -1,14 +1,18 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'League Spartan', sans-serif;
+  font-family: "League Spartan", sans-serif;
   scroll-behavior: smooth;
 }
 body {
   background-color: $black-color;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 a {
@@ -17,7 +21,11 @@ a {
   font-weight: 800;
 }
 
-h1, h2, h3, p, span {
+h1,
+h2,
+h3,
+p,
+span {
   color: $white-primary;
 }
 
@@ -29,5 +37,11 @@ button {
   font-weight: 800;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

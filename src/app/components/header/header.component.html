@@ -14,17 +14,24 @@
   </nav>
 
   <div class="toggle-menu" (click)="toggleMenu()">
-    <lucide-icon name="menu" [size]="24" [class.active]="!menuIsOpened"></lucide-icon>
-    <lucide-icon name="x" [size]="24" [class.active]="menuIsOpened"></lucide-icon>
+    <lucide-icon
+      name="menu"
+      [size]="24"
+      [class.active]="!menuIsOpened"
+    ></lucide-icon>
+    <lucide-icon
+      name="x"
+      [size]="24"
+      [class.active]="menuIsOpened"
+    ></lucide-icon>
   </div>
 
   <div class="menu" [class.active]="menuIsOpened">
-    <a href="#inicio">inicio</a>
-    <a href="#tecnologias">tecnologias</a>
-    <a href="#projetos">projetos</a>
-    <a href="#contatos">
+    <a href="#inicio" (click)="closeMenuAndNavigate()">inicio</a>
+    <a href="#tecnologias" (click)="closeMenuAndNavigate()">tecnologias</a>
+    <a href="#projetos" (click)="closeMenuAndNavigate()">projetos</a>
+    <a href="#contato" (click)="closeMenuAndNavigate()">
       <button>contato</button>
     </a>
   </div>
-
 </header>
