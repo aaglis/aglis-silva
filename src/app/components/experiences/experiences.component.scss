@@ -1,4 +1,4 @@
-@import '../../../variables.scss';
+@import "../../../variables.scss";
 
 .container {
   @include max-width-1520;
@@ -24,11 +24,17 @@
   h1 {
     font-size: 5rem;
     padding-bottom: 1rem;
+    @media screen and (max-width: 500px) {
+      font-size: 4rem;
+    }
   }
   .pos-title {
     font-size: 1.2rem;
     font-weight: 500;
     padding-bottom: 4rem;
+    @media screen and (max-width: 500px) {
+      font-size: 1.1rem;
+    }
   }
 
   .experiences-container {
@@ -38,14 +44,22 @@
     flex-direction: column;
     position: relative;
     gap: 50px;
+    @media screen and (max-width: 500px) {
+      gap: 30px;
+    }
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 50%;
       width: 2px;
       height: 100%;
-      background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(144,145,152,1) 50%, rgba(39,39,45,1) 100%);
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(144, 145, 152, 1) 50%,
+        rgba(39, 39, 45, 1) 100%
+      );
     }
 
     .experience {
@@ -81,14 +95,14 @@
       h3 {
         font-size: 1.4rem;
         font-weight: 700;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
       }
 
       p {
         &.role {
           font-size: 1.2rem;
           font-weight: 500;
-          margin-bottom: .8rem;
+          margin-bottom: 0.8rem;
           color: $gray-secondary;
         }
         &.date {
