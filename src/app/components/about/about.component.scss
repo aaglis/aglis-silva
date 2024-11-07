@@ -1,9 +1,10 @@
-@import '../../../variables.scss';
+@import "../../../variables.scss";
 
 :host {
   display: block;
   padding-top: 6rem;
   padding-bottom: 2rem;
+  padding: 6rem 24px 2rem 24px;
 }
 
 .container {
@@ -18,6 +19,27 @@
   padding: 2rem;
   .content {
     display: flex;
+
+    @media screen and (max-width: 650px) {
+      flex-direction: column;
+      gap: 50px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: $gray-secondary;
+        border-radius: 5px;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(50%);
+        @media screen and (max-width: 500px) {
+          top: 57%;
+        }
+      }
+    }
     .left-wrapper {
       padding: 0 3rem;
       display: flex;
@@ -37,9 +59,8 @@
         transform: translateX(0);
       }
 
-
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         right: 0;
@@ -47,10 +68,16 @@
         height: 100%;
         background-color: $gray-secondary;
         border-radius: 5px;
+        @media screen and (max-width: 650px) {
+          display: none;
+        }
       }
       .title {
         h1 {
           font-size: 4.5rem;
+          @media screen and (max-width: 780px) {
+            font-size: 4rem;
+          }
         }
         p {
           font-size: 1.4rem;
@@ -69,7 +96,7 @@
           gap: 10px;
           position: relative; // Necessário para posicionar o pseudo-elemento
           &::before {
-            content: '•'; // Define o conteúdo do marcador
+            content: "•"; // Define o conteúdo do marcador
             color: $white-primary; // Altere esta cor conforme necessário
             position: absolute;
             left: -20px; // Ajuste a posição conforme necessário
@@ -116,8 +143,13 @@
             align-items: center;
             gap: 5px;
             font-size: 1.2rem;
+            lucide-icon {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
             p {
-              transition: .3s;
+              transition: 0.3s;
             }
             &:hover {
               p {
@@ -131,6 +163,9 @@
           color: $gray-secondary;
           font-weight: 600;
           line-height: 1.6;
+          @media screen and (max-width: 650px) {
+            text-align: center;
+          }
         }
       }
     }
